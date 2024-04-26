@@ -1,10 +1,10 @@
 import Asteroid from "../entities/asteroid.js";
 
-function getRandom(min, max) {
+const getRandom = (min, max) => {
   return Math.random() * (max - min) + min;
-}
+};
 
-function generateAsteroids(count, canvasWidth, canvasHeight) {
+const generateAsteroids = (count, canvasWidth, canvasHeight) => {
   const asteroids = [];
 
   for (let i = 0; i < count; i++) {
@@ -21,6 +21,6 @@ function generateAsteroids(count, canvasWidth, canvasHeight) {
   }
 
   return asteroids;
-}
+};
 
 export { getRandom, generateAsteroids };
