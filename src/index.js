@@ -1,11 +1,11 @@
 import { generateAsteroids } from "./utils/utilities.js";
 import Player from "./entities/player.js";
-import Rendering from "./systems/rendering.js";
-import Movement from "./systems/movement.js";
-import Rotation from "./systems/rotation.js";
 import Input from "./systems/input.js";
+import Rotation from "./systems/rotation.js";
+import Movement from "./systems/movement.js";
 import Firing from "./systems/firing.js";
 import Collision from "./systems/collision.js";
+import Rendering from "./systems/rendering.js";
 
 const backgroundColors = ["#36454F", "#343434", "#28282B", "#353935"];
 
@@ -21,11 +21,11 @@ const entities = [player, ...asteroids];
 
 const systems = [
   new Input(),
-  new Firing(),
   new Rotation(),
   new Movement(),
-  new Rendering(canvas),
+  new Firing(),
   new Collision(canvas),
+  new Rendering(canvas),
 ];
 
 const mainLoop = (lastTime) => {
