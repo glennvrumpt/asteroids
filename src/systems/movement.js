@@ -24,12 +24,12 @@ class Movement extends System {
           velocity.dx = forwardVector.x * movementSpeed;
           velocity.dy = forwardVector.y * movementSpeed;
 
-          sprite.image.src = "../assets/images/ShipWithThrust.png";
+          sprite.image.src = "../assets/ShipWithThrust.png";
         } else {
           velocity.dx = 0;
           velocity.dy = 0;
 
-          sprite.image.src = "../assets/images/Ship.png";
+          sprite.image.src = "../assets/Ship.png";
         }
       }
     });

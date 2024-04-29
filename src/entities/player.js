@@ -12,7 +12,7 @@ class Player extends Entity {
 
     this.addComponent(new Position(x, y));
     this.addComponent(new Velocity(0, 0));
-    this.addComponent(new Sprite("../assets/images/Ship.png"));
+    this.addComponent(new Sprite("../assets/Ship.png"));
     this.addComponent(new Size(64, 64));
     this.addComponent(new Rotation());
     this.addComponent(new Input());

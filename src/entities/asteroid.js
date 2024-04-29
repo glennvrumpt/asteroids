@@ -11,7 +11,7 @@ class Asteroid extends Entity {
 
     this.addComponent(new Position(x, y));
     this.addComponent(new Velocity(dx, dy));
-    this.addComponent(new Sprite("../assets/images/Asteroid.png"));
+    this.addComponent(new Sprite("../assets/Asteroid.png"));
     this.addComponent(new Size(64, 64));
     this.addComponent(new Rotation(angle));
     this.speed = speed;

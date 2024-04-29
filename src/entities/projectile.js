@@ -11,7 +11,7 @@ class Projectile extends Entity {
 
     this.addComponent(new Position(x, y));
     this.addComponent(new Velocity(dx, dy));
-    this.addComponent(new Sprite("../assets/images/Laser.png"));
+    this.addComponent(new Sprite("../assets/Laser.png"));
     this.addComponent(new Size(16, 16));
     this.addComponent(new Rotation(angle));
   }
