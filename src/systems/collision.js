@@ -6,18 +6,20 @@ class Collision extends System {
     this.canvas = canvas;
   }
 
-  checkAABBCollision(entityA, entityB) {
+  checkCircleCollision(entityA, entityB) {
     const posA = entityA.getComponent("Position");
     const sizeA = entityA.getComponent("Size");
     const posB = entityB.getComponent("Position");
     const sizeB = entityB.getComponent("Size");
 
-    return (
-      posA.x < posB.x + sizeB.width &&
-      posA.x + sizeA.width > posB.x &&
-      posA.y < posB.y + sizeB.height &&
-      posA.y + sizeA.height > posB.y
-    );
+    const radiusA = sizeA.width / 2;
+    const radiusB = sizeB.width / 2;
+
+    const dx = posA.x + radiusA - (posB.x + radiusB);
+    const dy = posA.y + radiusA - (posB.y + radiusB);
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    return distance < radiusA + radiusB;
   }
 
   wrapAsteroid(asteroid) {
@@ -71,7 +73,7 @@ class Collision extends System {
 
     lasers.forEach((laser) => {
       asteroids.forEach((asteroid) => {
-        if (this.checkAABBCollision(laser, asteroid)) {
+        if (this.checkCircleCollision(laser, asteroid)) {
           entities.splice(entities.indexOf(laser), 1);
           entities.splice(entities.indexOf(asteroid), 1);
         }
@@ -80,7 +82,7 @@ class Collision extends System {
 
     if (player) {
       asteroids.forEach((asteroid) => {
-        if (this.checkAABBCollision(player, asteroid)) {
+        if (this.checkCircleCollision(player, asteroid)) {
           const position = player.getComponent("Position");
           position.x = this.canvas.width / 2 - 32;
           position.y = this.canvas.height / 2 - 32;
